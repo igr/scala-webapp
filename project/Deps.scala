@@ -1,26 +1,6 @@
 import sbt.*
 
 object Deps {
-//  val PostgresJdbc = "org.postgresql" % "postgresql" % "42.5.4"
-//  val scalaTest = "org.scalatest" %% "scalatest" % "3.2.9"
-//  val scalaCheck = "org.scalacheck" %% "scalacheck" % "1.15.4"
-//  val cats = "org.typelevel" %% "cats-core" % "2.6.1"
-//  val catsEffect = "org.typelevel" %% "cats-effect" % "3.2.9"
-//  val fs2 = "co.fs2" %% "fs2-core" % "3.1.6"
-//  val http4sVersion = "0.21.22"
-//  val http4sClient = "org.http4s" %% "http4s-blaze-client" % http4sVersion
-//  val circeVersion = "0.14.1"
-//  val circeCore = "io.circe" %% "circe-core" % circeVersion
-//  val circeGeneric = "io.circe" %% "circe-generic" % circeVersion
-//  val circeParser = "io.circe" %% "circe-parser" % circeVersion
-//  val circeFs2 = "io.circe" %% "circe-fs2" % "0.14.1"
-//  val circeGenericExtras = "io.circe" %% "circe-generic-extras" % "0.14.1"
-//  val circeOptics = "io.circe" %% "circe-optics" % "0.14.1"
-//  val circeJava8 = "io.circe" %% "circe-java8" % "0.14.1"
-//  val circeJawn = "io.circe" %% "circe-jawn" % "0.14.1"
-//  val circeYaml = "io.circe" %% "circe-yaml" % "0.14.1"
-//  val circeDerivation = "io.circe" %% "circe-derivation" % "0.14.1"
-
   object Cats extends Dep("org.typelevel", "2.10.0") {
     val Core = module("cats-core")
   }
@@ -28,11 +8,29 @@ object Deps {
 
   object Http4s extends Dep("org.http4s", "0.23.23") {
     val Core = module("http4s-core")
-    val Dsl = module("http4s-dsl")
-
     val Circe = module("http4s-circe")
+    val Ember = module("http4s-ember-server")
   }
-  val BlazeServer = "org.http4s" %% "http4s-blaze-server" % "0.23.16"
+
+  object Circe extends Dep("io.circe", "0.14.6") {
+    val Core = module("circe-core")
+    val Generic = module("circe-generic")
+    val Parser = module("circe-parser")
+    val Derivation = module("circe-derivation")
+  }
+
+  object Tapir extends Dep("com.softwaremill.sttp.tapir", "1.9.9") {
+    val Http4sServer = module("tapir-http4s-server")
+    val Circe = module("tapir-json-circe")
+    val Swagger = module("tapir-swagger-ui-bundle")
+  }
+
+  object Slick extends Dep("com.typesafe.slick", "3.5.1") {
+    val Core = module("slick")
+    val Codegen = module("slick-codegen")
+  }
+  val Hikori = "org.postgresql" % "postgresql" % "42.7.3"
+
 
   abstract class Dep(val organization: String, val version: String) {
 

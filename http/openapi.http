@@ -1,0 +1,7 @@
+### OpenApi Doc
+
+GET http://localhost:8080/docs
+
+### OpenApi definition
+
+GET http://localhost:8080/docs/docs.yaml

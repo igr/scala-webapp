@@ -39,7 +39,7 @@ object Settings {
     Seq(
       scalaVersion := "3.4.0",
       scalacOptions ++= ScalacOptions ++ Seq(
-        "-Ybackend-parallelism", Math.max(java.lang.Runtime.getRuntime.availableProcessors() - 1, 1).toString
+        "-Ybackend-parallelism", Math.max(java.lang.Runtime.getRuntime.availableProcessors() - 1, 1).toString,
       ),
 
       Compile / scalaSource := baseDirectory.value / "main",

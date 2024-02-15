@@ -1,0 +1,9 @@
+### Hello example
+
+GET http://localhost:8080/hello?name=igor
+
+
+### Books
+
+GET http://localhost:8080/books/list/all
+

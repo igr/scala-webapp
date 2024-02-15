@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "65432:5432"
+    volumes:
+      - ./docker/vol:/var/lib/postgresql/data
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=oblac
+      - POSTGRES_DB=bookstore
