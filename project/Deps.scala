@@ -28,8 +28,17 @@ object Deps {
   object Slick extends Dep("com.typesafe.slick", "3.5.1") {
     val Core = module("slick")
     val Codegen = module("slick-codegen")
+    val Hikari = module("slick-hikaricp")
   }
-  val Hikori = "org.postgresql" % "postgresql" % "42.7.3"
+  val JdbcPostgresql = "org.postgresql" % "postgresql" % "42.7.3"
+
+  val TypesafeConfig = "com.typesafe" % "config" % "1.4.3"
+
+  object Slf4j extends Dep("org.slf4j", "2.0.13") {
+    val Api = module("slf4j-api", crossVersion = false)
+    val Simple = module("slf4j-simple", crossVersion = false)
+  }
+
 
 
   abstract class Dep(val organization: String, val version: String) {

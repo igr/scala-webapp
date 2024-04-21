@@ -1,5 +1,8 @@
+CREATE DATABASE oblac;
+\c oblac;
+
 CREATE TABLE IF NOT EXISTS books (
-  id SERIAL PRIMARY KEY,
+  book_id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   year INTEGER NOT NULL
 );

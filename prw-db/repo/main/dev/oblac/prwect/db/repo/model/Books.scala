@@ -1,11 +1,10 @@
 package dev.oblac.prwect.db.repo.model
 
-import dev.oblac.prwect.model.BookId
 import slick.lifted.{Rep, TableQuery, Tag}
 
 import slick.jdbc.PostgresProfile.api._
 
-class Books(tag: Tag) extends Table[BookDbRow](tag, None, "books") {
+class Books(tag: Tag) extends Table[BookDbRow](tag, "books") {
 
   def bookId: Rep[Int] = column[Int]("book_id")
   def title: Rep[String] = column[String]("title")

@@ -94,11 +94,17 @@ lazy val app = project
   .in(file("prw-app"))
   .dependsOn(web)
   .dependsOn(serviceImpl)
+  .dependsOn(dbImpl)
   .settings(Settings.common)
   .settings(
     name := "app",
     libraryDependencies ++= Seq(
       Deps.Cats.Core,
       Deps.CatsEffect,
+      Deps.TypesafeConfig,
+      Deps.Slick.Core,
+      Deps.Slick.Hikari,
+      Deps.JdbcPostgresql,
+      Deps.Slf4j.Simple
     )
   )

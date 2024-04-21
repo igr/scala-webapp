@@ -6,5 +6,5 @@ case class BookTitle(value: String) extends AnyVal
 
 case class BookYear(value: Int) extends AnyVal
 
-case class NewBook(title: BookTitle, year: BookYear, author: Author)
-case class Book(id: BookId, title: BookTitle, year: BookYear, author: Author)
+case class NewBook(title: BookTitle, year: BookYear)
+case class Book(id: BookId, title: BookTitle, year: BookYear)

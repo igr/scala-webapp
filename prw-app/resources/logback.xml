@@ -1,0 +1,10 @@
+<configuration>
+
+  <logger name="dev.oblac" level="trace"/>
+  <logger name="slick.jdbc" level="${SLICK_LOG_LEVEL:-INFO}" />
+
+  <root level="warn">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>
